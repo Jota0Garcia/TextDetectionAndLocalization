@@ -24,7 +24,6 @@ imagen='frasco.jpg'
 original=cv2.imread(imagen) # La utilizaremos para sacar el filtro de sobel sobre la imagen original.
 f=cv2.imread(imagen,0)
 
-muestra_imagen("Imagen original",f)
 
 
 # Paso 1. Segmentación de Bordes - Canny.
@@ -37,7 +36,7 @@ muestra_imagen("Imagen original",f)
 
 
 def programa_manual(minVal,maxVal,kernelSize,alfa):
-    canny=cv2.Canny(minVal,maxVal) 
+    canny=cv2.Canny(f,minVal,maxVal) 
     return seleccion_contornos(canny,kernelSize,alfa)
 
 
@@ -137,7 +136,7 @@ def filtro_umbral(contours2,hierarchy2,xy_sobel,alfa):
             coordenada=coordenadas[0]
             i,j=coordenada[1],coordenada[0]
             edge_intensity_region+=xy_sobel[i][j]
-        edge_intensity_region_list.append(edge_intensity_region,alfa)
+        edge_intensity_region_list.append(edge_intensity_region)
 
 
     # Para que una región sea considerada de texto, su 
@@ -241,3 +240,4 @@ def muestra_imagen_final(final_regions):
     return muestra_imagen("Resultado final",original2) 
 
 
+programa_manual(30,100,3,0.8)
