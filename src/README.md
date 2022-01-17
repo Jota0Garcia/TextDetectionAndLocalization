@@ -1,0 +1,1 @@
+Esta es la versión de consola del programa, para ejecutarlo, únicamente escribir el nombre de la imagen deseado en la variable "imagen" y ejecutar el programa mediante las funciones programa_automatico() ó programa_manual(), ésta última con los parámetros deseados explicados en la documentación.
